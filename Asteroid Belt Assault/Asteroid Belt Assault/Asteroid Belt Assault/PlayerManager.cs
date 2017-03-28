@@ -11,14 +11,14 @@ namespace Asteroid_Belt_Assault
     class PlayerManager
     {
         public Sprite playerSprite;
-        private float playerSpeed = 160.0f;
+        private float playerSpeed = 320.0f;
         private Rectangle playerAreaLimit;
 
         public long PlayerScore = 0;
         public int LivesRemaining = 3;
         public bool Destroyed = false;
 
-        private Vector2 gunOffset = new Vector2(25, 10);
+        private Vector2 gunOffset = new Vector2(33, 10);
         private float shotTimer = 0.0f;
         private float minShotTimer = 0.2f;
         private int playerRadius = 15;

@@ -29,7 +29,7 @@ namespace Asteroid_Belt_Assault
         PlayerManager playerManager;
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
-       // PlanetManager planetManager;
+        PlanetManager planetManager;
 
         CollisionManager collisionManager;
 

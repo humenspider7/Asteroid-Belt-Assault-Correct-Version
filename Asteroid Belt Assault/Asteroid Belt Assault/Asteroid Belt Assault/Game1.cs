@@ -86,7 +86,7 @@ namespace Asteroid_Belt_Assault
                 new Rectangle(0, 450, 2, 2));
 
             asteroidManager = new AsteroidManager(
-                20,
+                0,
                 spriteSheet,
                 new Rectangle(0, 0, 50, 50),
                 20,
@@ -106,7 +106,7 @@ namespace Asteroid_Belt_Assault
             enemyManager = new EnemyManager(
                 spriteSheet,
                 new Rectangle(0, 200, 50, 50),
-                12,
+                7,
                 playerManager,
                 new Rectangle(
                     0,

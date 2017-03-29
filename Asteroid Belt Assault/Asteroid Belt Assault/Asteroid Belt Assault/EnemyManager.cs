@@ -99,12 +99,17 @@ namespace Asteroid_Belt_Assault
             setUpWaypoints();
         }
 
-        public void SpawnEnemy(int path)
+        public void SpawnEnemy(int path, int type)
         {
+            Rectangle eframe = initialFrame;
+
+            if (type == 2)
+                eframe = new Rectangle(0, 0, 200, 200);
+
             Enemy thisEnemy = new Enemy(
                 texture,
                 pathWaypoints[path][0],
-                initialFrame,
+                eframe,
                 frameCount);
             for (int x = 0; x < pathWaypoints[path].Count(); x++)
             {
@@ -129,7 +134,12 @@ namespace Asteroid_Belt_Assault
                     if (waveSpawns[x] > 0)
                     {
                         waveSpawns[x]--;
-                        SpawnEnemy(x);
+
+                        int type = 1;
+                        if (waveSpawns[x] == 0)
+                            type = 2;
+
+                        SpawnEnemy(x, type);
                     }
                 }
                 shipSpawnTimer = 0f;

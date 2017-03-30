@@ -103,8 +103,7 @@ namespace Asteroid_Belt_Assault
         {
             Rectangle eframe = initialFrame;
 
-            if (type == 2)
-                eframe = new Rectangle(0, 0, 200, 200);
+          
 
             Enemy thisEnemy = new Enemy(
                 texture,

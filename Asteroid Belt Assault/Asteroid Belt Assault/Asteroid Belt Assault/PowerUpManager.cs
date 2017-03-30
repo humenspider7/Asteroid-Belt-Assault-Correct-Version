@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Asteroid_Belt_Assault
 {
-    class PlanetManager
+    class PowerUpManager
     {
-        
+
     }
 }

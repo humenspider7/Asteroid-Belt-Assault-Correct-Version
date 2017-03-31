@@ -28,7 +28,8 @@ namespace Asteroid_Belt_Assault
             rand = new Random(seed);
 
             planetRects.Add(new Rectangle(540, 230, 175, 175));
-            
+            planetRects.Add(new Rectangle(840, 140, 150, 150));
+
 
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;

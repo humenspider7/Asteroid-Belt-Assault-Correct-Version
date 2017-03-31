@@ -23,6 +23,7 @@ namespace Asteroid_Belt_Assault
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
+        Texture2D planetSheet;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -77,6 +78,14 @@ namespace Asteroid_Belt_Assault
 
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
+            planetSheet = Content.Load<Texture2D>(@"Textures\PlanetSheet");
+
+            planetManager = new PlanetManager(
+                this.Window.ClientBounds.Width,
+                this.Window.ClientBounds.Height,
+                new Vector2(0, 40f),
+                planetSheet);
+
 
             starField = new StarField(
                 this.Window.ClientBounds.Width,
@@ -199,6 +208,7 @@ namespace Asteroid_Belt_Assault
                     enemyManager.Update(gameTime);
                     explosionManager.Update(gameTime);
                     collisionManager.CheckCollisions();
+                    planetManager.Update(gameTime);
 
                     if (playerManager.Destroyed)
                     {
@@ -226,6 +236,8 @@ namespace Asteroid_Belt_Assault
                     enemyManager.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
                     explosionManager.Update(gameTime);
+                    planetManager.Update(gameTime);
+
 
                     if (playerDeathTimer >= playerDeathDelayTime)
                     {
@@ -242,6 +254,8 @@ namespace Asteroid_Belt_Assault
                     enemyManager.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
                     explosionManager.Update(gameTime);
+                    planetManager.Update(gameTime);
+
                     if (playerDeathTimer >= playerDeathDelayTime)
                     {
                         gameState = GameStates.TitleScreen;
@@ -280,6 +294,7 @@ namespace Asteroid_Belt_Assault
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
+                planetManager.Draw(spriteBatch);
 
                 spriteBatch.DrawString(
                     pericles14,

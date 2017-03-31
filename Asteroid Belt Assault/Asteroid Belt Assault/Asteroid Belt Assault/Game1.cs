@@ -19,11 +19,14 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen, Playing, PlayerDead, GameOver };
+        enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver };
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D planetSheet;
+        Texture2D levelScreen;
+
+        int difficultyLevel = 1;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -79,6 +82,7 @@ namespace Asteroid_Belt_Assault
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
             planetSheet = Content.Load<Texture2D>(@"Textures\PlanetSheet");
+            levelScreen = Content.Load<Texture2D>(@"Textures\LevelSelect");
 
             planetManager = new PlanetManager(
                 this.Window.ClientBounds.Width,
@@ -195,9 +199,38 @@ namespace Asteroid_Belt_Assault
                             playerManager.LivesRemaining = playerStartingLives;
                             playerManager.PlayerScore = 0;
                             resetGame();
-                            gameState = GameStates.Playing;
+                            gameState = GameStates.DifficultySelect;
                         }
                     }
+                    break;
+
+                case GameStates.DifficultySelect:
+
+                    KeyboardState kb = Keyboard.GetState();
+
+                    if (kb.IsKeyDown(Keys.D1))
+                    {
+                        difficultyLevel = 1;
+                        gameState = GameStates.Playing;
+
+
+                    }
+                    else if (kb.IsKeyDown(Keys.D2))
+                    {
+                        difficultyLevel = 2;
+                        gameState = GameStates.Playing;
+
+
+                    }
+
+                    else if (kb.IsKeyDown(Keys.D3))
+                    {
+                        difficultyLevel = 3;
+                        gameState = GameStates.Playing;
+
+
+                    }
+
                     break;
 
                 case GameStates.Playing:
@@ -285,16 +318,25 @@ namespace Asteroid_Belt_Assault
                         Color.White);
             }
 
+            if (gameState == GameStates.DifficultySelect)
+            {
+                spriteBatch.Draw(levelScreen,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
+            }
+
             if ((gameState == GameStates.Playing) ||
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))
             {
                 starField.Draw(spriteBatch);
+                planetManager.Draw(spriteBatch);
                 asteroidManager.Draw(spriteBatch);
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
-                planetManager.Draw(spriteBatch);
+
 
                 spriteBatch.DrawString(
                     pericles14,

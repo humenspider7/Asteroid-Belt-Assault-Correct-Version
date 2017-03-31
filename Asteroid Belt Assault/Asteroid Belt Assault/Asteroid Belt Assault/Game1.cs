@@ -205,20 +205,25 @@ namespace Asteroid_Belt_Assault
                     break;
 
                 case GameStates.DifficultySelect:
-
+                    //WORK ON DIFFICULTY
                     KeyboardState kb = Keyboard.GetState();
 
                     if (kb.IsKeyDown(Keys.D1))
                     {
                         difficultyLevel = 1;
                         gameState = GameStates.Playing;
+                        int LivesRemaining = 6;
 
+                        //Lives = 6.  Asteroids = 5.  Enemies = 3.
 
                     }
                     else if (kb.IsKeyDown(Keys.D2))
                     {
                         difficultyLevel = 2;
                         gameState = GameStates.Playing;
+                        int LivesRemaining = 3;
+
+                        //Lives = 6.  Asteroids = 10.  Enemies = 6.
 
 
                     }
@@ -227,6 +232,10 @@ namespace Asteroid_Belt_Assault
                     {
                         difficultyLevel = 3;
                         gameState = GameStates.Playing;
+                        int playerStartingLives = 1;
+                        int LivesRemaining = 1;
+
+                        //Lives = 1.  Asteroids = 20.  Enemies = 9.
 
 
                     }

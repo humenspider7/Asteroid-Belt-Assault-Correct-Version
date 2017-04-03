@@ -210,11 +210,37 @@ namespace Asteroid_Belt_Assault
 
                     if (kb.IsKeyDown(Keys.D1))
                     {
+                        //BEFORE RUNNING, DELETE METHOD HERE.
                         difficultyLevel = 1;
                         gameState = GameStates.Playing;
-                        int LivesRemaining = 6;
 
+                        //LIVES
+                        int playerStartingLives = 6;
+
+                        //ASTEROID
+                        asteroidManager = new AsteroidManager(
+                10,
+                spriteSheet,
+                new Rectangle(0, 0, 50, 50),
+                5,
+                this.Window.ClientBounds.Width,
+                this.Window.ClientBounds.Height);
+
+                        //ENEMIES
+                        enemyManager = new EnemyManager(
+                            spriteSheet,
+                            new Rectangle(0, 200, 50, 50),
+                            3,
+                            playerManager,
+                            new Rectangle(
+                                0,
+                                0,
+                                this.Window.ClientBounds.Width,
+                                this.Window.ClientBounds.Height));
                         //Lives = 6.  Asteroids = 5.  Enemies = 3.
+
+
+
 
                     }
                     else if (kb.IsKeyDown(Keys.D2))
@@ -233,8 +259,6 @@ namespace Asteroid_Belt_Assault
                         difficultyLevel = 3;
                         gameState = GameStates.Playing;
                         int playerStartingLives = 1;
-                        int LivesRemaining = 1;
-
                         //Lives = 1.  Asteroids = 20.  Enemies = 9.
 
 

@@ -14,7 +14,7 @@ namespace Asteroid_Belt_Assault
         private ExplosionManager explosionManager;
         private Vector2 offScreen = new Vector2(-500, -500);
         private Vector2 shotToAsteroidImpact = new Vector2(0, -20);
-        private int enemyPointValue = 100;
+        public int enemyPointValue = 100;
 
         public CollisionManager(
             AsteroidManager asteroidManager,

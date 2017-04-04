@@ -210,47 +210,41 @@ namespace Asteroid_Belt_Assault
 
                     if (kb.IsKeyDown(Keys.D1))
                     {
-                        //BEFORE RUNNING, DELETE METHOD HERE.
+                        //CHANGING DIFFICULTY LEVEL
                         difficultyLevel = 1;
                         gameState = GameStates.Playing;
 
-                        //LIVES
-                        int playerStartingLives = 6;
-
-                        //ASTEROID
-                        asteroidManager = new AsteroidManager(
-                10,
-                spriteSheet,
-                new Rectangle(0, 0, 50, 50),
-                5,
-                this.Window.ClientBounds.Width,
-                this.Window.ClientBounds.Height);
+                        //LIVES - 1, because the game includes 0 as a life.  Total lives are lives remaining + 1.  Fixed it in the display, so life 1 is your last life.
+                        playerManager.LivesRemaining = 5;
 
                         //ENEMIES
-                        enemyManager = new EnemyManager(
-                            spriteSheet,
-                            new Rectangle(0, 200, 50, 50),
-                            3,
-                            playerManager,
-                            new Rectangle(
-                                0,
-                                0,
-                                this.Window.ClientBounds.Width,
-                                this.Window.ClientBounds.Height));
-                        //Lives = 6.  Asteroids = 5.  Enemies = 3.
+                        enemyManager.MinShipsPerWave = 2;
+                        enemyManager.MaxShipsPerWave = 4;
+
+                        //ASTEROIDS
 
 
-
+                        //SCORES
+                        collisionManager.enemyPointValue = 50;
 
                     }
                     else if (kb.IsKeyDown(Keys.D2))
                     {
                         difficultyLevel = 2;
                         gameState = GameStates.Playing;
-                        int LivesRemaining = 3;
 
-                        //Lives = 6.  Asteroids = 10.  Enemies = 6.
+                        //LIVES
+                        playerManager.LivesRemaining = 2;
 
+                        //ENEMIES
+                        enemyManager.MinShipsPerWave = 6;
+                        enemyManager.MaxShipsPerWave = 8;
+
+                        //ASTEROIDS
+                        
+
+                        //SCORES
+                        collisionManager.enemyPointValue = 100;
 
                     }
 
@@ -258,10 +252,19 @@ namespace Asteroid_Belt_Assault
                     {
                         difficultyLevel = 3;
                         gameState = GameStates.Playing;
-                        int playerStartingLives = 1;
-                        //Lives = 1.  Asteroids = 20.  Enemies = 9.
+                       
+                        //LIVES
+                        playerManager.LivesRemaining = 0;
 
+                        //ENEMIES
+                        enemyManager.MinShipsPerWave = 12;
+                        enemyManager.MaxShipsPerWave = 16;
 
+                        //ASTEROIDS
+                        
+
+                        //SCORES
+                        collisionManager.enemyPointValue = 200;
                     }
 
                     break;
@@ -382,7 +385,7 @@ namespace Asteroid_Belt_Assault
                     spriteBatch.DrawString(
                         pericles14,
                         "Ships Remaining: " +
-                            playerManager.LivesRemaining.ToString(),
+                            (playerManager.LivesRemaining + 1).ToString(),
                         livesLocation,
                         Color.White);
                 }
@@ -392,7 +395,7 @@ namespace Asteroid_Belt_Assault
             {
                 spriteBatch.DrawString(
                     pericles14,
-                    "G A M E  O V E R !",
+                    "G A M E  O V E R ! \nY O U  A R E  B A D!",
                     new Vector2(
                         this.Window.ClientBounds.Width / 2 -
                           pericles14.MeasureString("G A M E  O V E R !").X / 2,

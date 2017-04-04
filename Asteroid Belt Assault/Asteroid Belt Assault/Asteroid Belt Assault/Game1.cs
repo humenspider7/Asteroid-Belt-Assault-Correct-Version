@@ -209,10 +209,11 @@ namespace Asteroid_Belt_Assault
                     KeyboardState kb = Keyboard.GetState();
 
                     if (kb.IsKeyDown(Keys.D1))
-                    {
+                    { 
                         //CHANGING DIFFICULTY LEVEL
                         difficultyLevel = 1;
                         gameState = GameStates.Playing;
+
 
                         //LIVES - 1, because the game includes 0 as a life.  Total lives are lives remaining + 1.  Fixed it in the display, so life 1 is your last life.
                         playerManager.LivesRemaining = 5;
@@ -292,6 +293,30 @@ namespace Asteroid_Belt_Assault
                         {
                             gameState = GameStates.PlayerDead;
                         }
+                    }
+
+
+                    //RESET FUNCTION
+                    kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.R))
+                    {
+                        resetGame();
+                        playerManager.PlayerScore = 0;
+
+                        if (difficultyLevel == 1)
+                            playerManager.LivesRemaining = 5;
+                        else if (difficultyLevel == 2)
+                            playerManager.LivesRemaining = 2;
+                        else if (difficultyLevel == 3)
+                            playerManager.LivesRemaining = 0;
+
+                    //PAUSE FUNCTION
+                    if(kb.IsKeyDown(Keys.P))
+                    {
+                            gameState = GameStates.DifficultySelect;
+
+                    }
+
                     }
 
                     break;

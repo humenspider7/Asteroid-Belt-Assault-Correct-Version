@@ -41,7 +41,7 @@ namespace Asteroid_Belt_Assault
 
         SpriteFont pericles14;
 
-        private float playerDeathDelayTime = 10f;
+        private float playerDeathDelayTime = 0f; //THIS CONTROLS RESPAWN TIME.  Original is 10f.
         private float playerDeathTimer = 0f;
         private float titleScreenTimer = 0f;
         private float titleScreenDelayTime = 1f;
@@ -291,15 +291,13 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 180;
+                        asteroidManager.minSpeed = 200;
                         asteroidManager.maxSpeed = 300;
                         collisionManager.enemyPointValue = 500;
                         for (int i = 0; i < 5; i++)
                         {
                             asteroidManager.AddAsteroid();
                         }
-
-
 
                     }
 
@@ -390,7 +388,13 @@ namespace Asteroid_Belt_Assault
                         //CODE HERE
                     }
 
-                        break;
+                    //Automatic difficulty adjustment based on your progress. 
+                    if (difficultyLevel == 4 && playerManager.LivesRemaining > 1 && playerManager.LivesRemaining < 59)
+                    {
+                        asteroidManager.minSpeed = 170;
+                        asteroidManager.maxSpeed = 270;
+                    }
+                    break;
 
                 case GameStates.PlayerDead:
                     playerDeathTimer +=

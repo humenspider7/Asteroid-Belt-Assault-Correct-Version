@@ -266,8 +266,8 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 400;
-                        asteroidManager.maxSpeed = 420;
+                        asteroidManager.minSpeed = 300;
+                        asteroidManager.maxSpeed = 320;
                         collisionManager.enemyPointValue = 400;
                     }
 
@@ -346,6 +346,7 @@ namespace Asteroid_Belt_Assault
                     {
                         playerManager.playerSpeed = 640.0f;
                     }
+
 
                         break;
 

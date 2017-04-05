@@ -19,15 +19,16 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, ccViewer, Pause };
+        enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, ccViewer, CreditsScreen, Pause };
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D planetSheet;
         Texture2D levelScreen;
         Texture2D ccViewer;
+        Texture2D credits;
 
-        int difficultyLevel = 1;
+        int difficultyLevel;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -35,7 +36,6 @@ namespace Asteroid_Belt_Assault
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
         PlanetManager planetManager;
-        PowerUpManager powerupManager;
 
         CollisionManager collisionManager;
 
@@ -85,7 +85,7 @@ namespace Asteroid_Belt_Assault
             planetSheet = Content.Load<Texture2D>(@"Textures\PlanetSheet");
             levelScreen = Content.Load<Texture2D>(@"Textures\LevelSelect");
             ccViewer = Content.Load<Texture2D>(@"Textures\CheatCodes");
-
+            credits = Content.Load<Texture2D>(@"Textures\Credits");
             planetManager = new PlanetManager(
                 this.Window.ClientBounds.Width,
                 this.Window.ClientBounds.Height,
@@ -206,8 +206,18 @@ namespace Asteroid_Belt_Assault
                     }
                     break;
 
-                case GameStates.Pause:
+
+                case GameStates.CreditsScreen:
                     KeyboardState kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.R))
+                    {
+                        gameState = GameStates.TitleScreen;
+                    }
+
+                    break;
+
+                case GameStates.Pause:
+                     kb = Keyboard.GetState();
                     if(kb.IsKeyDown(Keys.P))
                     {
                         gameState = GameStates.Playing;
@@ -276,6 +286,11 @@ namespace Asteroid_Belt_Assault
                     {
                         gameState = GameStates.ccViewer;
 
+                    }
+
+                    if (kb.IsKeyDown(Keys.Z))
+                    {
+                        gameState = GameStates.CreditsScreen;
                     }
                     break;
 
@@ -442,6 +457,15 @@ namespace Asteroid_Belt_Assault
                         this.Window.ClientBounds.Height),
                         Color.White);
             }
+
+            if (gameState == GameStates.CreditsScreen)
+            {
+                spriteBatch.Draw(credits,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
+            }
+
             if ((gameState == GameStates.Playing) ||
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))

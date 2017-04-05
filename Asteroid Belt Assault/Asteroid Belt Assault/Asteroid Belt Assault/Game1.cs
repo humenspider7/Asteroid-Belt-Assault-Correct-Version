@@ -331,7 +331,8 @@ namespace Asteroid_Belt_Assault
                         resetGame();
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
-                     }
+                        playerManager.playerSpeed = 320.0f;
+                    }
                     //PAUSE FUNCTION
                     if(kb.IsKeyDown(Keys.P))
                     {
@@ -339,19 +340,31 @@ namespace Asteroid_Belt_Assault
 
                     }
 
-                    //CHEAT CODES FOR LOSER
+                    //CHEAT CODES FOR LOSERS
+
                     //Press 6 & 9 on Keypad to change lives to 69.
                     if (kb.IsKeyDown(Keys.D6) && kb.IsKeyDown(Keys.D9))
                     {
                         playerManager.LivesRemaining = 68;
                     }
 
-                    //Change Player Speed when pressing 
-                    if (kb.IsKeyDown(Keys.D1) && kb.IsKeyDown(Keys.D2))
+                    //KYS
+                    if (kb.IsKeyDown(Keys.K) && kb.IsKeyDown(Keys.Y) && kb.IsKeyDown(Keys.S))
                     {
                         playerManager.Destroyed = true;
                     }
-                    break;
+
+                    //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
+                    if (kb.IsKeyDown(Keys.D3) && kb.IsKeyDown(Keys.D2))
+                    {
+                        playerManager.playerSpeed = 640.0f;
+                    }
+
+
+
+
+
+                        break;
 
                 case GameStates.PlayerDead:
                     playerDeathTimer +=
@@ -377,6 +390,7 @@ namespace Asteroid_Belt_Assault
                         resetGame();
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
+                        playerManager.playerSpeed = 320.0f;
                     }
 
                     break;
@@ -402,6 +416,7 @@ namespace Asteroid_Belt_Assault
                         resetGame();
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
+                        playerManager.playerSpeed = 320.0f;
                     }
                     break;
 

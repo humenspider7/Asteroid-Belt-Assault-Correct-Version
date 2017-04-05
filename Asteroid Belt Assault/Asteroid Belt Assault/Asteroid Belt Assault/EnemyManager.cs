@@ -94,7 +94,7 @@ namespace Asteroid_Belt_Assault
                     4,
                     2,
                     150f,
-                    screenBounds);
+                    screenBounds, true);
 
             setUpWaypoints();
         }

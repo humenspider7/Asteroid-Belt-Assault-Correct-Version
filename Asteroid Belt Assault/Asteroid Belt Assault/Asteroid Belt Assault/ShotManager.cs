@@ -17,6 +17,7 @@ namespace Asteroid_Belt_Assault
         private static int FrameCount;
         private float shotSpeed;
         private static int CollisionRadius;
+        private bool enemy = false;
 
         public ShotManager(
             Texture2D texture,
@@ -24,7 +25,8 @@ namespace Asteroid_Belt_Assault
             int frameCount,
             int collisionRadius,
             float shotSpeed,
-            Rectangle screenBounds)
+            Rectangle screenBounds,
+            bool enemy)
         {
             Texture = texture;
             InitialFrame = initialFrame;
@@ -32,6 +34,7 @@ namespace Asteroid_Belt_Assault
             CollisionRadius = collisionRadius;
             this.shotSpeed = shotSpeed;
             this.screenBounds = screenBounds;
+            this.enemy = enemy;
         }
 
         public void FireShot(
@@ -74,6 +77,10 @@ namespace Asteroid_Belt_Assault
         {
             for (int x = Shots.Count - 1; x >= 0; x--)
             {
+                if (enemy)
+                    EffectManager.Effect("Enemy Cannon Fire").Trigger(Shots[x].Center);
+                else
+                    EffectManager.Effect("Ship Cannon Fire").Trigger(Shots[x].Center);
                 Shots[x].Update(gameTime);
                 if (!screenBounds.Intersects(Shots[x].Destination))
                 {

@@ -153,6 +153,11 @@ namespace Asteroid_Belt_Assault
                 Vector2 cOfMass = (asteroid1.Velocity +
                     asteroid2.Velocity) / 2;
 
+                Vector2 cOfLocation = (asteroid1.Center +
+                    asteroid2.Center) / 2;
+
+                EffectManager.Effect("MeteroidCollision").Trigger(cOfLocation);
+
                 Vector2 normal1 = asteroid2.Center - asteroid1.Center;
                 normal1.Normalize();
                 Vector2 normal2 = asteroid1.Center - asteroid2.Center;
@@ -168,6 +173,8 @@ namespace Asteroid_Belt_Assault
                     Vector2.Reflect(asteroid2.Velocity, normal2);
 
                 asteroid2.Velocity += cOfMass;
+
+                
             }
         }
 
@@ -201,6 +208,9 @@ namespace Asteroid_Belt_Assault
         {
             foreach (Sprite asteroid in Asteroids)
             {
+                //if (rand.Next(0, 10) == 3)
+                //    EffectManager.Effect("MeteroidCollision").Trigger(asteroid.Center);
+
                 asteroid.Draw(spriteBatch);
             }
         }

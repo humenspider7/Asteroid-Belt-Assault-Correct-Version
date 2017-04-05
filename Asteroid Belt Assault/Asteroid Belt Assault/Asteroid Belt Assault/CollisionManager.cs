@@ -41,9 +41,11 @@ namespace Asteroid_Belt_Assault
                         shot.Location = offScreen;
                         enemy.Destroyed = true;
                         playerManager.PlayerScore += enemyPointValue;
+                        EffectManager.Effect("BasicExplosion").Trigger(enemy.EnemySprite.Center);
+                        /*
                         explosionManager.AddExplosion(
                             enemy.EnemySprite.Center,
-                            enemy.EnemySprite.Velocity / 10);
+                            enemy.EnemySprite.Velocity / 10);*/
                     }
 
                 }
@@ -121,9 +123,11 @@ namespace Asteroid_Belt_Assault
                     asteroid.Location = offScreen;
 
                     playerManager.Destroyed = true;
+                    /*
                     explosionManager.AddExplosion(
                         playerManager.playerSprite.Center,
-                        Vector2.Zero);
+                        Vector2.Zero);*/
+                    EffectManager.Effect("BasicExplosionWithTrails2").Trigger(playerManager.playerSprite.Center);
                 }
             }
         }

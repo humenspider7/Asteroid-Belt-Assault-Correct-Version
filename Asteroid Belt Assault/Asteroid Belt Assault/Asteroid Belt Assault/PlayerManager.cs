@@ -24,6 +24,8 @@ namespace Asteroid_Belt_Assault
         private int playerRadius = 15;
         public ShotManager PlayerShotManager;
 
+        public int PowerupLevel = 1;
+
         public PlayerManager(
             Texture2D texture,  
             Rectangle initialFrame,
@@ -42,7 +44,7 @@ namespace Asteroid_Belt_Assault
                 4,
                 2,
                 250f,
-                screenBounds);
+                screenBounds, false);
 
             playerAreaLimit =
                 new Rectangle(
@@ -71,6 +73,24 @@ namespace Asteroid_Belt_Assault
                     playerSprite.Location + gunOffset,
                     new Vector2(0, -1),
                     true);
+
+                if (PowerupLevel == 1)
+                {
+
+                    for (int i = -60; i <= 60; i += 30)
+                    {
+                        Vector2 newShot = new Vector2(i, -100);
+                        newShot.Normalize();
+
+
+                        PlayerShotManager.FireShot(
+                            playerSprite.Location + gunOffset,
+                            newShot,
+                            true);
+
+                    }
+                }
+
                 shotTimer = 0.0f;
             }
         }
@@ -163,9 +183,12 @@ namespace Asteroid_Belt_Assault
         public void Draw(SpriteBatch spriteBatch)
         {
             PlayerShotManager.Draw(spriteBatch);
+            
 
             if (!Destroyed)
             {
+                //EffectManager.Effect("ShieldsUp").Trigger(playerSprite.Center + new Vector2(8, 0));
+                EffectManager.Effect("ShipSmokeTrail").Trigger(playerSprite.Center + new Vector2(8, 28));
                 playerSprite.Draw(spriteBatch);
             }
         }

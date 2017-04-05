@@ -80,6 +80,9 @@ namespace Asteroid_Belt_Assault
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            EffectManager.Initialize(this.graphics, this.Content);
+            EffectManager.LoadContent();
+
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
             planetSheet = Content.Load<Texture2D>(@"Textures\PlanetSheet");
@@ -184,7 +187,10 @@ namespace Asteroid_Belt_Assault
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            EffectManager.Update(gameTime);
+
             // TODO: Add your update logic here
+            KeyboardState kb = Keyboard.GetState();
 
             switch (gameState)
             {
@@ -208,7 +214,7 @@ namespace Asteroid_Belt_Assault
 
 
                 case GameStates.CreditsScreen:
-                    KeyboardState kb = Keyboard.GetState();
+                    
                     if (kb.IsKeyDown(Keys.R))
                     {
                         gameState = GameStates.TitleScreen;
@@ -217,7 +223,6 @@ namespace Asteroid_Belt_Assault
                     break;
 
                 case GameStates.Pause:
-                     kb = Keyboard.GetState();
                     if(kb.IsKeyDown(Keys.P))
                     {
                         gameState = GameStates.Playing;
@@ -226,7 +231,6 @@ namespace Asteroid_Belt_Assault
                     break;
                 case GameStates.DifficultySelect:
                     //WORK ON DIFFICULTY
-                     kb = Keyboard.GetState();
 
                     if (kb.IsKeyDown(Keys.D1))
                     {
@@ -241,8 +245,18 @@ namespace Asteroid_Belt_Assault
                         //ASTEROIDS
                         asteroidManager.minSpeed = 40;
                         asteroidManager.maxSpeed = 80;
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            asteroidManager.AddAsteroid();
+                        }
+
+
+
                         //SCORES
                         collisionManager.enemyPointValue = 50;
+
+
                     }
                     else if (kb.IsKeyDown(Keys.D2))
                     {
@@ -253,6 +267,10 @@ namespace Asteroid_Belt_Assault
                         enemyManager.MaxShipsPerWave = 8;
                         asteroidManager.minSpeed = 80;
                         asteroidManager.maxSpeed = 160;
+                        for (int i = 0; i < 10; i++)
+                        {
+                            asteroidManager.AddAsteroid();
+                        }
 
                         collisionManager.enemyPointValue = 100;
                     }
@@ -267,6 +285,12 @@ namespace Asteroid_Belt_Assault
                         asteroidManager.minSpeed = 160;
                         asteroidManager.maxSpeed = 200;
                         collisionManager.enemyPointValue = 200;
+                        for (int i = 0; i < 20; i++)
+                        {
+                            asteroidManager.AddAsteroid();
+                        }
+
+
                     }
 
                     else if (kb.IsKeyDown(Keys.D4))
@@ -279,6 +303,9 @@ namespace Asteroid_Belt_Assault
                         asteroidManager.minSpeed = 300;
                         asteroidManager.maxSpeed = 320;
                         collisionManager.enemyPointValue = 400;
+                        
+
+
                     }
 
                     //Cheat Code Viewer
@@ -295,7 +322,6 @@ namespace Asteroid_Belt_Assault
                     break;
 
                 case GameStates.ccViewer:
-                    kb = Keyboard.GetState();
                     if (kb.IsKeyDown(Keys.R))
                     {
                         gameState = GameStates.DifficultySelect;
@@ -327,7 +353,7 @@ namespace Asteroid_Belt_Assault
                         }
                     }
                     //RESET FUNCTION
-                    kb = Keyboard.GetState();
+
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
@@ -357,9 +383,11 @@ namespace Asteroid_Belt_Assault
                     }
 
                     //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
-                    if (kb.IsKeyDown(Keys.D3) && kb.IsKeyDown(Keys.D2))
+                    if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
                         playerManager.playerSpeed = 640.0f;
+                        asteroidManager.minSpeed = 30;
+                        asteroidManager.maxSpeed = 60;
                     }
 
 
@@ -509,6 +537,7 @@ namespace Asteroid_Belt_Assault
 
 
             spriteBatch.End();
+            EffectManager.Draw();
 
             base.Draw(gameTime);
         }

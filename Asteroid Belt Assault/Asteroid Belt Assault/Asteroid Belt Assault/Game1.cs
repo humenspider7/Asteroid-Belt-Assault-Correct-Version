@@ -339,6 +339,18 @@ namespace Asteroid_Belt_Assault
 
                     }
 
+                    //CHEAT CODES FOR LOSER
+                    //Press 6 & 9 on Keypad to change lives to 69.
+                    if (kb.IsKeyDown(Keys.D6) && kb.IsKeyDown(Keys.D9))
+                    {
+                        playerManager.LivesRemaining = 68;
+                    }
+
+                    //Change Player Speed when pressing 
+                    if (kb.IsKeyDown(Keys.D1) && kb.IsKeyDown(Keys.D2))
+                    {
+                        playerManager.Destroyed = true;
+                    }
                     break;
 
                 case GameStates.PlayerDead:

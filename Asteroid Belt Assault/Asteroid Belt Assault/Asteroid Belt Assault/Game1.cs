@@ -245,14 +245,6 @@ namespace Asteroid_Belt_Assault
                         //ASTEROIDS
                         asteroidManager.minSpeed = 40;
                         asteroidManager.maxSpeed = 80;
-
-                        for (int i = 0; i < 5; i++)
-                        {
-                            asteroidManager.AddAsteroid();
-                        }
-
-
-
                         //SCORES
                         collisionManager.enemyPointValue = 50;
 
@@ -281,8 +273,8 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 1;
                         enemyManager.MinShipsPerWave = 12;
                         enemyManager.MaxShipsPerWave = 16;
-                        asteroidManager.minSpeed = 160;
-                        asteroidManager.maxSpeed = 200;
+                        asteroidManager.minSpeed = 120;
+                        asteroidManager.maxSpeed = 160;
                         collisionManager.enemyPointValue = 200;
                         for (int i = 0; i < 3; i++)
                         {
@@ -299,8 +291,8 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 300;
-                        asteroidManager.maxSpeed = 320;
+                        asteroidManager.minSpeed = 180;
+                        asteroidManager.maxSpeed = 300;
                         collisionManager.enemyPointValue = 500;
                         for (int i = 0; i < 5; i++)
                         {
@@ -393,6 +385,10 @@ namespace Asteroid_Belt_Assault
                         asteroidManager.maxSpeed = 60;
                     }
 
+                    if(kb.IsKeyDown(Keys.D4) && kb.IsKeyDown(Keys.D2) && kb.IsKeyDown(Keys.D0))
+                    {
+                        //CODE HERE
+                    }
 
                         break;
 

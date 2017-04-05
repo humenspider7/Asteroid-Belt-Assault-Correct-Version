@@ -80,3 +80,40 @@ C:\Users\eahscs\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid 
 C:\Users\eahscs\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Asteroid Belt Assault.pdb
 C:\Users\eahscs\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\PlanetSheet.xnb
 C:\Users\eahscs\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\LevelSelect.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\SpriteSheet.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\TitleScreen.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\PlanetSheet.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\LevelSelect.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Explosion1.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Explosion2.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Explosion3.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Explosion4.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Shot1.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Shot2.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Fonts\Pericles14.xnb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Asteroid Belt Assault.exe
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Asteroid Belt Assault.pdb
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Avatar.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Net.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Storage.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Video.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Xact.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Avatar.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Net.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Storage.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Video.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Xact.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Asteroid Belt Assault.csprojResolveAssemblyReference.cache
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Asteroid Belt Assault.exe
+C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Asteroid Belt Assault.pdb

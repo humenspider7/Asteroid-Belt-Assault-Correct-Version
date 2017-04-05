@@ -19,12 +19,13 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, Pause };
+        enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, ccViewer, Pause };
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D planetSheet;
         Texture2D levelScreen;
+        Texture2D ccViewer;
 
         int difficultyLevel = 1;
 
@@ -83,6 +84,7 @@ namespace Asteroid_Belt_Assault
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
             planetSheet = Content.Load<Texture2D>(@"Textures\PlanetSheet");
             levelScreen = Content.Load<Texture2D>(@"Textures\LevelSelect");
+            ccViewer = Content.Load<Texture2D>(@"Textures\CheatCodes");
 
             planetManager = new PlanetManager(
                 this.Window.ClientBounds.Width,
@@ -217,65 +219,43 @@ namespace Asteroid_Belt_Assault
                      kb = Keyboard.GetState();
 
                     if (kb.IsKeyDown(Keys.D1))
-                    { 
+                    {
                         //CHANGING DIFFICULTY LEVEL
                         difficultyLevel = 1;
                         gameState = GameStates.Playing;
-
-
                         //LIVES - 1, because the game includes 0 as a life.  Total lives are lives remaining + 1.  Fixed it in the display, so life 1 is your last life.
                         playerManager.LivesRemaining = 5;
-
                         //ENEMIES
                         enemyManager.MinShipsPerWave = 2;
                         enemyManager.MaxShipsPerWave = 4;
-
                         //ASTEROIDS
                         asteroidManager.minSpeed = 40;
                         asteroidManager.maxSpeed = 80;
-
                         //SCORES
                         collisionManager.enemyPointValue = 50;
-
                     }
                     else if (kb.IsKeyDown(Keys.D2))
                     {
                         difficultyLevel = 2;
                         gameState = GameStates.Playing;
-
-                        //LIVES
                         playerManager.LivesRemaining = 2;
-
-                        //ENEMIES
                         enemyManager.MinShipsPerWave = 6;
                         enemyManager.MaxShipsPerWave = 8;
-
-                        //ASTEROIDS
                         asteroidManager.minSpeed = 80;
                         asteroidManager.maxSpeed = 160;
 
-                        //SCORES
                         collisionManager.enemyPointValue = 100;
-
                     }
 
                     else if (kb.IsKeyDown(Keys.D3))
                     {
                         difficultyLevel = 3;
                         gameState = GameStates.Playing;
-                       
-                        //LIVES
                         playerManager.LivesRemaining = 1;
-
-                        //ENEMIES
                         enemyManager.MinShipsPerWave = 12;
                         enemyManager.MaxShipsPerWave = 16;
-
-                        //ASTEROIDS
                         asteroidManager.minSpeed = 160;
                         asteroidManager.maxSpeed = 200;
-
-                        //SCORES
                         collisionManager.enemyPointValue = 200;
                     }
 
@@ -283,23 +263,30 @@ namespace Asteroid_Belt_Assault
                     {
                         difficultyLevel = 4;
                         gameState = GameStates.Playing;
-
-                        //LIVES
                         playerManager.LivesRemaining = 0;
-
-                        //ENEMIES
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-
-                        //ASTEROIDS
                         asteroidManager.minSpeed = 400;
                         asteroidManager.maxSpeed = 420;
-
-                        //SCORES
                         collisionManager.enemyPointValue = 400;
+                    }
+
+                    //Cheat Code Viewer
+                    else if (kb.IsKeyDown(Keys.D5))
+                    {
+                        gameState = GameStates.ccViewer;
+
                     }
                     break;
 
+                case GameStates.ccViewer:
+                    kb = Keyboard.GetState();
+                    if (kb.IsKeyDown(Keys.R))
+                    {
+                        gameState = GameStates.DifficultySelect;
+                    }
+
+                    break;
                 case GameStates.Playing:
 
                     starField.Update(gameTime);
@@ -359,10 +346,6 @@ namespace Asteroid_Belt_Assault
                     {
                         playerManager.playerSpeed = 640.0f;
                     }
-
-
-
-
 
                         break;
 
@@ -451,6 +434,13 @@ namespace Asteroid_Belt_Assault
                         Color.White);
             }
 
+            if (gameState == GameStates.ccViewer)
+            {
+                spriteBatch.Draw(ccViewer,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
+            }
             if ((gameState == GameStates.Playing) ||
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))

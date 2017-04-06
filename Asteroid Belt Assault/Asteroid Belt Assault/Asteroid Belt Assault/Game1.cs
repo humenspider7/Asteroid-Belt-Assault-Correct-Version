@@ -264,8 +264,8 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 2;
                         enemyManager.MinShipsPerWave = 6;
                         enemyManager.MaxShipsPerWave = 8;
-                        asteroidManager.minSpeed = 80;
-                        asteroidManager.maxSpeed = 160;
+                        asteroidManager.minSpeed = 60;
+                        asteroidManager.maxSpeed = 120;
                         collisionManager.enemyPointValue = 100;
                         for (int i = 0; i < 10; i++)
                         {
@@ -281,10 +281,10 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 1;
                         enemyManager.MinShipsPerWave = 12;
                         enemyManager.MaxShipsPerWave = 16;
-                        asteroidManager.minSpeed = 120;
-                        asteroidManager.maxSpeed = 160;
+                        asteroidManager.minSpeed = 100;
+                        asteroidManager.maxSpeed = 140;
                         collisionManager.enemyPointValue = 200;
-                        for (int i = 0; i < 15; i++)
+                        for (int i = 0; i < 13; i++)
                         {
                             asteroidManager.AddAsteroid();
                         }
@@ -299,25 +299,25 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 200;
-                        asteroidManager.maxSpeed = 300;
+                        asteroidManager.minSpeed = 160;
+                        asteroidManager.maxSpeed = 240;
                         collisionManager.enemyPointValue = 500;
-                        for (int i = 0; i < 20; i++)
+                        for (int i = 0; i < 15; i++)
                         {
                             asteroidManager.AddAsteroid();
                         }
                     }
 
-                    else if (kb.IsKeyDown(Keys.D9))
+                    else if (kb.IsKeyDown(Keys.D9)) //Survival Mode.  Score = time played.  No enemies.
                     {
                         difficultyLevel = 9;
                         gameState = GameStates.Playing;
                         playerManager.LivesRemaining = 1;
                         enemyManager.MinShipsPerWave = 0;
                         enemyManager.MaxShipsPerWave = 0;
-                        asteroidManager.minSpeed = 250;
+                        asteroidManager.minSpeed = 200;
                         asteroidManager.maxSpeed = 300;
-                        playerManager.playerSpeed = 480.0f;
+                        playerManager.playerSpeed = 400.0f;
 
                         for (int i = 0; i < 20; i++)
                         {
@@ -576,7 +576,7 @@ namespace Asteroid_Belt_Assault
                     spriteBatch.DrawString(
                         pericles14,
                         "Score: " +
-                            ((int)playerTimePlayed).ToString() + "s",
+                            ((int)playerTimePlayed * 100).ToString(),
                         timerLocation,
                         Color.White);
                 }

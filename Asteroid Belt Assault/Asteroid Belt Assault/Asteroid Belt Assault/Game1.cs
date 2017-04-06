@@ -41,15 +41,17 @@ namespace Asteroid_Belt_Assault
 
         SpriteFont pericles14;
 
-        private float playerDeathDelayTime = 0f; //THIS CONTROLS RESPAWN TIME.  Original is 10f.
+        private float playerDeathDelayTime = 3f; //THIS CONTROLS RESPAWN TIME.  Original is 10f.
         private float playerDeathTimer = 0f;
         private float titleScreenTimer = 0f;
         private float titleScreenDelayTime = 1f;
+        private float playerTimePlayed = 0f;
 
         private int playerStartingLives = 3;
         private Vector2 playerStartLocation = new Vector2(390, 550);
         private Vector2 scoreLocation = new Vector2(20, 10);
         private Vector2 livesLocation = new Vector2(20, 25);
+        private Vector2 timerLocation = new Vector2(20, 40);
 
 
         public Game1()
@@ -522,6 +524,19 @@ namespace Asteroid_Belt_Assault
                         "Ships Remaining: " +
                             (playerManager.LivesRemaining + 1).ToString(),
                         livesLocation,
+                        Color.White);
+                }
+
+                if (playerManager.LivesRemaining >= 0)
+                {
+                    //Added a timer
+                    playerTimePlayed +=
+                        (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    spriteBatch.DrawString(
+                        pericles14,
+                        "Time Played: " +
+                            ((int)playerTimePlayed).ToString() + "s",
+                        timerLocation,
                         Color.White);
                 }
             }

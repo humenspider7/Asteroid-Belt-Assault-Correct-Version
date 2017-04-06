@@ -13,6 +13,7 @@ namespace Asteroid_Belt_Assault
         public Sprite playerSprite;
         public float playerSpeed = 320.0f;
         private Rectangle playerAreaLimit;
+        private float timePlayed;
 
         public long PlayerScore = 0;
         public int LivesRemaining = 6;
@@ -179,6 +180,7 @@ namespace Asteroid_Belt_Assault
                 imposeMovementLimits();
             }
         }
+
 
         public void Draw(SpriteBatch spriteBatch)
         {

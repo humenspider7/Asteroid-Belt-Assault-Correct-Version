@@ -51,7 +51,7 @@ namespace Asteroid_Belt_Assault
         private Vector2 playerStartLocation = new Vector2(390, 550);
         private Vector2 scoreLocation = new Vector2(20, 10);
         private Vector2 livesLocation = new Vector2(20, 25);
-        private Vector2 timerLocation = new Vector2(20, 40);
+        private Vector2 timerLocation = new Vector2(20, 10);
 
 
         public Game1()
@@ -300,8 +300,26 @@ namespace Asteroid_Belt_Assault
                         {
                             asteroidManager.AddAsteroid();
                         }
+                    }
+
+                    else if (kb.IsKeyDown(Keys.D9))
+                    {
+                        difficultyLevel = 9;
+                        gameState = GameStates.Playing;
+                        playerManager.LivesRemaining = 1;
+                        enemyManager.MinShipsPerWave = 0;
+                        enemyManager.MaxShipsPerWave = 0;
+                        asteroidManager.minSpeed = 400;
+                        asteroidManager.maxSpeed = 500;
+
+                        for (int i = 0; i < 10; i++)
+                        {
+                            asteroidManager.AddAsteroid();
+                        }
 
                     }
+
+
 
                     //Cheat Code Viewer
                     else if (kb.IsKeyDown(Keys.D5))
@@ -355,6 +373,7 @@ namespace Asteroid_Belt_Assault
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
                         playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
                     }
                     //PAUSE FUNCTION
                     if(kb.IsKeyDown(Keys.P))
@@ -381,8 +400,9 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
                         playerManager.playerSpeed = 640.0f;
-                        asteroidManager.minSpeed = 30;
-                        asteroidManager.maxSpeed = 60;
+                        asteroidManager.minSpeed = 1;
+                        asteroidManager.maxSpeed = 20;
+                        playerManager.PowerupLevel = 2;
                     }
 
                     if(kb.IsKeyDown(Keys.D4) && kb.IsKeyDown(Keys.D2) && kb.IsKeyDown(Keys.D0))
@@ -390,14 +410,20 @@ namespace Asteroid_Belt_Assault
                         //CODE HERE
                     }
 
-                    //Automatic difficulty adjustment based on your progress. 
+
+                    /*
+                    Automatic difficulty adjustment based on your progress
                     if (difficultyLevel == 4 && playerManager.LivesRemaining > 1 && playerManager.LivesRemaining < 59)
                     {
                         asteroidManager.minSpeed = 170;
                         asteroidManager.maxSpeed = 270;
                     }
-                    break;
 
+                    */
+
+
+                    break;
+                    
                 case GameStates.PlayerDead:
                     playerDeathTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -423,6 +449,7 @@ namespace Asteroid_Belt_Assault
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
                         playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
                     }
 
                     break;
@@ -449,6 +476,7 @@ namespace Asteroid_Belt_Assault
                         gameState = GameStates.DifficultySelect;
                         playerManager.PlayerScore = 0;
                         playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
                     }
                     break;
 
@@ -511,12 +539,14 @@ namespace Asteroid_Belt_Assault
                 explosionManager.Draw(spriteBatch);
 
 
-                spriteBatch.DrawString(
-                    pericles14,
-                    "Score: " + playerManager.PlayerScore.ToString(),
-                    scoreLocation,
-                    Color.White);
-
+                if (difficultyLevel != 9)
+                {
+                    spriteBatch.DrawString(
+                        pericles14,
+                        "Score: " + playerManager.PlayerScore.ToString(),
+                        scoreLocation,
+                        Color.White);
+                }
                 if (playerManager.LivesRemaining >= 0)
                 {
                     spriteBatch.DrawString(
@@ -527,14 +557,14 @@ namespace Asteroid_Belt_Assault
                         Color.White);
                 }
 
-                if (playerManager.LivesRemaining >= 0)
+                if (difficultyLevel == 9)
                 {
                     //Added a timer
                     playerTimePlayed +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
                     spriteBatch.DrawString(
                         pericles14,
-                        "Time Played: " +
+                        "Score: " +
                             ((int)playerTimePlayed).ToString() + "s",
                         timerLocation,
                         Color.White);

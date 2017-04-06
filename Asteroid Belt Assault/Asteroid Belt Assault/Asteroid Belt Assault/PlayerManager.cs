@@ -75,7 +75,7 @@ namespace Asteroid_Belt_Assault
                     new Vector2(0, -1),
                     true);
 
-                if (PowerupLevel == 1)
+                if (PowerupLevel == 2)
                 {
 
                     for (int i = -60; i <= 60; i += 30)
@@ -91,6 +91,8 @@ namespace Asteroid_Belt_Assault
 
                     }
                 }
+
+                
 
                 shotTimer = 0.0f;
             }

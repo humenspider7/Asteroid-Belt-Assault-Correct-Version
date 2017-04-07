@@ -27,6 +27,8 @@ namespace Asteroid_Belt_Assault
         Need to add a new background for the 420 cheat, using the 420.png texture.
         Need to add Super Saiyan aura as a shield for the S3 Cheat.
 
+        
+
          */
 
         enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, ccViewer, CreditsScreen, Pause };
@@ -186,6 +188,8 @@ namespace Asteroid_Belt_Assault
             playerManager.PlayerShotManager.Shots.Clear();
             enemyManager.EnemyShotManager.Shots.Clear();
             playerManager.Destroyed = false;
+            playerManager.PowerupLevel = 1;
+
         }
         
         /// <summary>
@@ -394,7 +398,8 @@ namespace Asteroid_Belt_Assault
                         playerManager.playerSpeed = 320.0f;
                         playerTimePlayed = 0f;
                         asteroidManager.Clear();
-                        
+                        playerManager.PowerupLevel = 1;
+
 
                     }
                     //PAUSE FUNCTION
@@ -481,6 +486,7 @@ namespace Asteroid_Belt_Assault
                         playerManager.playerSpeed = 320.0f;
                         playerTimePlayed = 0f;
                         asteroidManager.Clear();
+                        playerManager.PowerupLevel = 1;
                     }
 
                     break;
@@ -509,6 +515,7 @@ namespace Asteroid_Belt_Assault
                         playerManager.playerSpeed = 320.0f;
                         playerTimePlayed = 0f;
                         asteroidManager.Clear();
+                        playerManager.PowerupLevel = 1;
                     }
                     break;
 

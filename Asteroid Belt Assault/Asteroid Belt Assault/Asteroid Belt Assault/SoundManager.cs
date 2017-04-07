@@ -19,6 +19,7 @@ namespace Asteroid_Belt_Assault
         private static SoundEffect playerShot;
         private static SoundEffect enemyShot;
         private static SoundEffect playerDeath;
+        private static SoundEffect Smokemon;
 
         private static Random rand = new Random();
 
@@ -29,6 +30,7 @@ namespace Asteroid_Belt_Assault
                 playerShot = content.Load<SoundEffect>(@"Sounds\Shot1");
                 enemyShot = content.Load<SoundEffect>(@"Sounds\Shot2");
                 playerDeath = content.Load<SoundEffect>(@"Sounds\playerExplosion");
+                Smokemon = content.Load<SoundEffect>(@"Sounds\Smokemon");
 
 
 
@@ -82,7 +84,7 @@ namespace Asteroid_Belt_Assault
             }
         }
 
-        public static void PlayPlayerDeath()
+        public static void PlayPlayerDeath()  //It's all Obi Wan's Fault!
         {
             try
             {
@@ -91,6 +93,17 @@ namespace Asteroid_Belt_Assault
             catch
             {
                 Debug.Write("PlayPlayerDeath Failed");
+            }
+        }
+        public static void PlaySmokemon()
+        {
+            try
+            {
+                Smokemon.Play();
+            }
+            catch
+            {
+                Debug.Write("Smokemon Failed");
             }
         }
 

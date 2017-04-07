@@ -47,13 +47,14 @@ namespace Asteroid_Belt_Assault
                 250f,
                 screenBounds, false);
 
+               
             playerAreaLimit =
                 new Rectangle(
                     0,
                     screenBounds.Height / 2,
                     screenBounds.Width,
                     screenBounds.Height / 2);
-
+                    
             for (int x = 1; x < frameCount; x++)
             {
                 playerSprite.AddFrame(

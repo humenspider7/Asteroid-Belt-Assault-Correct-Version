@@ -420,7 +420,8 @@ namespace Asteroid_Belt_Assault
 
                     if(kb.IsKeyDown(Keys.D4) && kb.IsKeyDown(Keys.D2) && kb.IsKeyDown(Keys.D0))
                     {
-                        //CODE HERE
+                        SoundManager.PlaySmokemon();
+                        //Plays Smokemon, but does not reset when you rest.
                     }
 
 
@@ -441,6 +442,7 @@ namespace Asteroid_Belt_Assault
                     playerDeathTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+                    
                     starField.Update(gameTime);
                     asteroidManager.Update(gameTime);
                     enemyManager.Update(gameTime);
@@ -448,7 +450,6 @@ namespace Asteroid_Belt_Assault
                     explosionManager.Update(gameTime);
                     planetManager.Update(gameTime);
                     
-
 
                     if (playerDeathTimer >= playerDeathDelayTime)
                     {

@@ -19,6 +19,16 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        /*
+         ISSUES
+         When activating the 420 cheat, Smokemon plays all the way and does not stop when hitting the reset button.  It needs to stop when reset.  Only to play during 420 cheat.
+         Player death sound needs to be just "It's all Obi Wan's fault!" sound effect only.  As of now, it plays both that and an explosion sound effect.
+
+        Need to add a new background for the 420 cheat, using the 420.png texture.
+        Need to add Super Saiyan aura as a shield for the S3 Cheat.
+
+         */
+
         enum GameStates { TitleScreen, DifficultySelect, Playing, PlayerDead, GameOver, ccViewer, CreditsScreen, Pause };
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;

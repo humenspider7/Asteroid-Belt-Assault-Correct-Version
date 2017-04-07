@@ -63,6 +63,7 @@ namespace Asteroid_Belt_Assault
         private float titleScreenTimer = 0f;
         private float titleScreenDelayTime = 1f;
         private float playerTimePlayed = 0f;
+        public bool isWeed = false;
 
         private int playerStartingLives = 3;
         private Vector2 playerStartLocation = new Vector2(390, 550);
@@ -436,8 +437,6 @@ namespace Asteroid_Belt_Assault
                     //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
                     if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
-                        
-
                         playerManager.playerSpeed = 640.0f;
                         asteroidManager.minSpeed = 1;
                         asteroidManager.maxSpeed = 20;
@@ -445,12 +444,13 @@ namespace Asteroid_Belt_Assault
                         SoundManager.PlayGoku();
                     }
 
+                    //Smokemon
                     if(kb.IsKeyDown(Keys.D4) && kb.IsKeyDown(Keys.D2) && kb.IsKeyDown(Keys.D0))
                     {
+                        isWeed = true;
                         SoundManager.PlaySmokemon();
                         //Plays Smokemon, but does not reset when you rest.
                     }
-
 
                     /*
                     Automatic difficulty adjustment based on your progress
@@ -459,10 +459,7 @@ namespace Asteroid_Belt_Assault
                         asteroidManager.minSpeed = 170;
                         asteroidManager.maxSpeed = 270;
                     }
-
                     */
-
-
                     break;
                     
                 case GameStates.PlayerDead:

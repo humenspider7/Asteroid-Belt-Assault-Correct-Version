@@ -622,6 +622,15 @@
       <Output>C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\Goku.xnb</Output>
       <Time>2017-04-06T23:00:18.1331453-04:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\420.png</Source>
+      <Name>Textures\420</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yusuf\Documents\GitHub\Asteroid-Belt-Assault-Correct-Version\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\420.xnb</Output>
+      <Time>2017-04-06T20:44:09.9632447-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{C709A413-13C5-46D5-A228-F53F8E0373C2}</ContentProjectGUID>

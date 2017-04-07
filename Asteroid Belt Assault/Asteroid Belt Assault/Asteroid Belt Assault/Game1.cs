@@ -22,6 +22,9 @@ namespace Asteroid_Belt_Assault
         /*
          ISSUES
          MAJOR ISSUE: Sounds echo the audio.  Really annoying.
+         
+         When using the S3 Cheat and the 420 cheat together, the audio plays together.  Need to make it so if you activate one cheat while the other is activated,
+         the audio stops and the audio of the latter cheat entered is playing only.
 
          When activating the 420 cheat, Smokemon plays all the way and does not stop when hitting the reset button.  It needs to stop when reset.  Only to play during 420 cheat.
          Player death sound needs to be just "It's all Obi Wan's fault!" sound effect only.  As of now, it plays both that and an explosion sound effect.
@@ -206,6 +209,7 @@ namespace Asteroid_Belt_Assault
             asteroidManager.Clear();
             playerManager.PowerupLevel = 1;
 
+            //Add something to stop audio playing here.
         }
         
         /// <summary>

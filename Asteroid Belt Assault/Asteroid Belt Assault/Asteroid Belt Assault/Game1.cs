@@ -360,6 +360,7 @@ namespace Asteroid_Belt_Assault
 
                     if (playerManager.Destroyed)
                     {
+                        SoundManager.PlayPlayerDeath();
                         
                         playerDeathTimer = 0f;
                         enemyManager.Active = false;
@@ -383,6 +384,7 @@ namespace Asteroid_Belt_Assault
                         playerManager.playerSpeed = 320.0f;
                         playerTimePlayed = 0f;
                         asteroidManager.Clear();
+                        
 
                     }
                     //PAUSE FUNCTION

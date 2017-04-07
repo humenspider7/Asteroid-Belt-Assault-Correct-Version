@@ -78,32 +78,50 @@ namespace Asteroid_Belt_Assault
 
         private void FireShot()
         {
-            if (shotTimer >= minShotTimer) 
+            if (shotTimer >= minShotTimer && !isD4) 
             {
                 PlayerShotManager.FireShot(
                     playerSprite.Location + gunOffset,
                     new Vector2(0, -1),
                     true);
+                shotTimer = 0.0f;
 
-                if (isD4 && shotTimer >= minShotTimer)
+                if (PowerupLevel == 2)
                 {
-                    PlayerShotManager.FireShot(
-                   playerSprite.Location + gunOffset,
-                   new Vector2(0, -1),
-                   true);
 
                     for (int i = -60; i <= 60; i += 30)
                     {
-                        Vector2 newShot = new Vector2(20, -20);
+                        Vector2 newShot = new Vector2(i, -100);
                         newShot.Normalize();
-
-
                         PlayerShotManager.FireShot(
                             playerSprite.Location + gunOffset,
                             newShot,
                             true);
-
                     }
+                }
+            }
+
+            if (isD4 && shotTimer >= minShotTimer)
+            {
+                shotTimer = 0.0f;
+                for (int i = -60; i <= 60; i += 30)
+                {
+                    Vector2 newShotR = new Vector2(20, -20);
+                    newShotR.Normalize();
+
+                    PlayerShotManager.FireShot(
+                        playerSprite.Location + gunOffset,
+                        newShotR,
+                        true);
+
+
+                    Vector2 newShotL = new Vector2(-20, -20);
+                    newShotL.Normalize();
+
+                    PlayerShotManager.FireShot(
+                       playerSprite.Location + gunOffset,
+                       newShotL,
+                       true);
                 }
 
                 if (PowerupLevel == 2)
@@ -119,9 +137,6 @@ namespace Asteroid_Belt_Assault
                             true);
                     }
                 }
-
-
-                shotTimer = 0.0f;
             }
         }
 

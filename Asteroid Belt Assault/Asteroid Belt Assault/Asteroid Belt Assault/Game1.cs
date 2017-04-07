@@ -329,13 +329,13 @@ namespace Asteroid_Belt_Assault
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 40;
+                        asteroidManager.minSpeed = 160;
                         asteroidManager.maxSpeed = 220;
                         collisionManager.enemyPointValue = 400;
 
                         playerManager.PowerupLevel = 4;
 
-                        for (int i = 0; i < 1; i++)
+                        for (int i = 0; i < 15; i++)
                         {
                             asteroidManager.AddAsteroid();
                         }

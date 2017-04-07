@@ -35,6 +35,8 @@ namespace Asteroid_Belt_Assault
         Originally, the reset function included the Reset() method.  Now, reset function changes have been put on the reset() method, so every instance is now just to call reset() 
         when pressing "R".  THAT MEANS in order to reset the audio, it will go in the reset() method once.
         
+        Need to balance the S3 Cheat.  Fix asteroid speed so it slows down but isn't a joke.  Also make shots faster when in S3.
+        Add V shots for Difficulty 4.  Only shoots in V.
 
          */
 

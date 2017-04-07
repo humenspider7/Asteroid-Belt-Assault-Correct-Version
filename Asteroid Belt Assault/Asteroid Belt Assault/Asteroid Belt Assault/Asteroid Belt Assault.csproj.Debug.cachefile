@@ -41,6 +41,7 @@ Content\Sounds\Explosion3.xnb
 Content\Sounds\Explosion4.xnb
 Content\Sounds\Shot1.xnb
 Content\Sounds\Shot2.xnb
+Content\Sounds\playerExplosion.xnb
 Content\Fonts\Pericles14.xnb
 Content\EffectLibrary\BasicExplosion.xnb
 Content\EffectLibrary\BasicExplosionWithHalo.xnb
@@ -64,7 +65,8 @@ Content\EffectLibrary\SimpleRain.xnb
 Content\EffectLibrary\StarFireImpact.xnb
 Content\EffectLibrary\StarTrail.xnb
 Content\EffectLibrary\WaterJet.xnb
-Content\Sounds\playerExplosion.xnb
+Content\Textures\420.xnb
 Content\Sounds\Smokemon.xnb
 Content\Sounds\Goku.xnb
-Content\Textures\420.xnb
+Content\Sounds\Smokemon.wma
+Content\Sounds\Goku.wma

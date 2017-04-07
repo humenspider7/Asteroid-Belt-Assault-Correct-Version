@@ -116,13 +116,15 @@ namespace Asteroid_Belt_Assault
                     playerManager.playerSprite.Center,
                     playerManager.playerSprite.CollisionRadius))
                 {
+                    playerManager.Destroyed = true;
+
                     explosionManager.AddExplosion(
                         asteroid.Center,
                         asteroid.Velocity / 10);
 
                     asteroid.Location = offScreen;
 
-                    playerManager.Destroyed = true;
+                    
                     /*
                     explosionManager.AddExplosion(
                         playerManager.playerSprite.Center,

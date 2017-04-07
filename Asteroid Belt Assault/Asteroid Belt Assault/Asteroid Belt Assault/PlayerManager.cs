@@ -17,7 +17,8 @@ namespace Asteroid_Belt_Assault
 
         public long PlayerScore = 0;
         public int LivesRemaining = 6;
-        public bool Destroyed = false;
+        private bool destroyed = false;
+        public static bool Dead = false;
 
         private Vector2 gunOffset = new Vector2(33, 10);
         private float shotTimer = 0.0f;
@@ -26,6 +27,13 @@ namespace Asteroid_Belt_Assault
         public ShotManager PlayerShotManager;
 
         public int PowerupLevel = 1;
+
+        public bool Destroyed {
+            get { return this.destroyed; }
+            set {
+                    this.destroyed = value;
+                PlayerManager.Dead = value;
+            } }
 
         public PlayerManager(
             Texture2D texture,  

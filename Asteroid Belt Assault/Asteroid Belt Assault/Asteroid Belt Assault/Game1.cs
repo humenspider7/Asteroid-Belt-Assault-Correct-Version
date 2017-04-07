@@ -21,21 +21,10 @@ namespace Asteroid_Belt_Assault
 
         /*
          ISSUES
-         MAJOR ISSUE: Sounds echo the audio.  Really annoying.
-         
-         When using the S3 Cheat and the 420 cheat together, the audio plays together.  Need to make it so if you activate one cheat while the other is activated,
-         the audio stops and the audio of the latter cheat entered is playing only.
 
-         When activating the 420 cheat, Smokemon plays all the way and does not stop when hitting the reset button.  It needs to stop when reset.  Only to play during 420 cheat.
-         Player death sound needs to be just "It's all Obi Wan's fault!" sound effect only.  As of now, it plays both that and an explosion sound effect.
-
-        Need to add a new background for the 420 cheat, using the 420.png texture.
         Need to add Super Saiyan aura as a shield for the S3 Cheat.
 
-        Originally, the reset function included the Reset() method.  Now, reset function changes have been put on the reset() method, so every instance is now just to call reset() 
-        when pressing "R".  THAT MEANS in order to reset the audio, it will go in the reset() method once.
-        
-        Need to balance the S3 Cheat.  Fix asteroid speed so it slows down but isn't a joke.  Also make shots faster when in S3.
+        Also make shots faster when in S3.
         Add V shots for Difficulty 4.  Only shoots in V.
 
          */
@@ -80,6 +69,7 @@ namespace Asteroid_Belt_Assault
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -133,7 +123,7 @@ namespace Asteroid_Belt_Assault
                 new Rectangle(0, 450, 2, 2));
 
             asteroidManager = new AsteroidManager(
-                0,
+                10,
                 spriteSheet,
                 new Rectangle(0, 0, 50, 50),
                 10,
@@ -203,13 +193,15 @@ namespace Asteroid_Belt_Assault
             enemyManager.EnemyShotManager.Shots.Clear();
             playerManager.Destroyed = false;
             playerManager.PowerupLevel = 1;
+            SoundManager.StopSong();
 
-            gameState = GameStates.DifficultySelect;
-            playerManager.PlayerScore = 0;
-            playerManager.playerSpeed = 320.0f;
-            playerTimePlayed = 0f;
-            asteroidManager.Clear();
-            playerManager.PowerupLevel = 1;
+            starField = new StarField(
+               this.Window.ClientBounds.Width,
+               this.Window.ClientBounds.Height,
+               200,
+               new Vector2(0, 30f),
+               spriteSheet,
+               new Rectangle(0, 450, 2, 2));
 
             //Add something to stop audio playing here.
         }
@@ -415,6 +407,12 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
+                        gameState = GameStates.DifficultySelect;
+                        playerManager.PlayerScore = 0;
+                        playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
+                        asteroidManager.Clear();
+                        playerManager.PowerupLevel = 1;
                     }
                     //PAUSE FUNCTION
                     if(kb.IsKeyDown(Keys.P))
@@ -444,8 +442,8 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
                         playerManager.playerSpeed = 640.0f;
-                        asteroidManager.minSpeed = 1;
-                        asteroidManager.maxSpeed = 20;
+                        asteroidManager.minSpeed = 60;
+                        asteroidManager.maxSpeed = 120;
                         playerManager.PowerupLevel = 2;
                         SoundManager.PlayGoku();
                     }
@@ -456,6 +454,14 @@ namespace Asteroid_Belt_Assault
                         isWeed = true;
                         SoundManager.PlaySmokemon();
                         //Plays Smokemon, but does not reset when you rest.
+
+                        starField = new StarField(
+                    this.Window.ClientBounds.Width,
+                    this.Window.ClientBounds.Height,
+                    200,
+                    new Vector2(0, 30f),
+                    weedBG,
+                    new Rectangle(0, 0, 800, 600));
                     }
 
                     /*
@@ -491,6 +497,12 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
+                        gameState = GameStates.DifficultySelect;
+                        playerManager.PlayerScore = 0;
+                        playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
+                        asteroidManager.Clear();
+                        playerManager.PowerupLevel = 1;
                     }
 
                     break;
@@ -514,6 +526,12 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
+                        gameState = GameStates.DifficultySelect;
+                        playerManager.PlayerScore = 0;
+                        playerManager.playerSpeed = 320.0f;
+                        playerTimePlayed = 0f;
+                        asteroidManager.Clear();
+                        playerManager.PowerupLevel = 1;
                     }
                     break;
 

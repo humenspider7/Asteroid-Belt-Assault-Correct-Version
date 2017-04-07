@@ -102,7 +102,8 @@ namespace Asteroid_Belt_Assault
                     finalColor));
 
             }
-            SoundManager.PlayExplosion();
+            if (!PlayerManager.Dead)
+                SoundManager.PlayExplosion();
         }
 
         public void Update(GameTime gameTime)

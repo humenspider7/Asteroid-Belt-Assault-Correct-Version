@@ -6,7 +6,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-
+using Microsoft.Xna.Framework.Media;
 
 namespace Asteroid_Belt_Assault
 {
@@ -19,8 +19,8 @@ namespace Asteroid_Belt_Assault
         private static SoundEffect playerShot;
         private static SoundEffect enemyShot;
         private static SoundEffect playerDeath;
-        private static SoundEffect Smokemon;
-        private static SoundEffect goku;
+        private static Song Smokemon;
+        private static Song goku;
         private static SoundEffect SS3;
 
         private static Random rand = new Random();
@@ -32,8 +32,8 @@ namespace Asteroid_Belt_Assault
                 playerShot = content.Load<SoundEffect>(@"Sounds\Shot1");
                 enemyShot = content.Load<SoundEffect>(@"Sounds\Shot2");
                 playerDeath = content.Load<SoundEffect>(@"Sounds\playerExplosion");
-                Smokemon = content.Load<SoundEffect>(@"Sounds\Smokemon");
-                goku = content.Load<SoundEffect>(@"Sounds\Goku");
+                Smokemon = content.Load<Song>(@"Sounds\Smokemon");
+                goku = content.Load<Song>(@"Sounds\Goku");
 
                 for (int x = 1; x <= explosionCount; x++)
                 {
@@ -99,7 +99,7 @@ namespace Asteroid_Belt_Assault
         {
             try
             {
-                Smokemon.Play();
+                MediaPlayer.Play(Smokemon);
             }
             catch
             {
@@ -111,7 +111,7 @@ namespace Asteroid_Belt_Assault
         {
             try
             {
-                goku.Play();
+                MediaPlayer.Play(goku);
             }
             catch
             {
@@ -119,6 +119,11 @@ namespace Asteroid_Belt_Assault
             }
         }
 
+        public static void StopSong()
+        {
+            if (MediaPlayer.State == MediaState.Playing)
+                MediaPlayer.Stop();
+        }
 
     }
 }

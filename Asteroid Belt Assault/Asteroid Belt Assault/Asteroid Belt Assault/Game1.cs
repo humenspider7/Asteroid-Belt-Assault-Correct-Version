@@ -21,12 +21,16 @@ namespace Asteroid_Belt_Assault
 
         /*
          ISSUES
+         MAJOR ISSUE: Sounds echo the audio.  Really annoying.
+
          When activating the 420 cheat, Smokemon plays all the way and does not stop when hitting the reset button.  It needs to stop when reset.  Only to play during 420 cheat.
          Player death sound needs to be just "It's all Obi Wan's fault!" sound effect only.  As of now, it plays both that and an explosion sound effect.
 
         Need to add a new background for the 420 cheat, using the 420.png texture.
         Need to add Super Saiyan aura as a shield for the S3 Cheat.
 
+        Originally, the reset function included the Reset() method.  Now, reset function changes have been put on the reset() method, so every instance is now just to call reset() 
+        when pressing "R".  THAT MEANS in order to reset the audio, it will go in the reset() method once.
         
 
          */
@@ -188,6 +192,13 @@ namespace Asteroid_Belt_Assault
             playerManager.PlayerShotManager.Shots.Clear();
             enemyManager.EnemyShotManager.Shots.Clear();
             playerManager.Destroyed = false;
+            playerManager.PowerupLevel = 1;
+
+            gameState = GameStates.DifficultySelect;
+            playerManager.PlayerScore = 0;
+            playerManager.playerSpeed = 320.0f;
+            playerTimePlayed = 0f;
+            asteroidManager.Clear();
             playerManager.PowerupLevel = 1;
 
         }
@@ -393,14 +404,6 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
-                        gameState = GameStates.DifficultySelect;
-                        playerManager.PlayerScore = 0;
-                        playerManager.playerSpeed = 320.0f;
-                        playerTimePlayed = 0f;
-                        asteroidManager.Clear();
-                        playerManager.PowerupLevel = 1;
-
-
                     }
                     //PAUSE FUNCTION
                     if(kb.IsKeyDown(Keys.P))
@@ -481,12 +484,6 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
-                        gameState = GameStates.DifficultySelect;
-                        playerManager.PlayerScore = 0;
-                        playerManager.playerSpeed = 320.0f;
-                        playerTimePlayed = 0f;
-                        asteroidManager.Clear();
-                        playerManager.PowerupLevel = 1;
                     }
 
                     break;
@@ -510,12 +507,6 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.R))
                     {
                         resetGame();
-                        gameState = GameStates.DifficultySelect;
-                        playerManager.PlayerScore = 0;
-                        playerManager.playerSpeed = 320.0f;
-                        playerTimePlayed = 0f;
-                        asteroidManager.Clear();
-                        playerManager.PowerupLevel = 1;
                     }
                     break;
 

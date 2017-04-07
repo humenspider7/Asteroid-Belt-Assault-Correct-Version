@@ -20,6 +20,8 @@ namespace Asteroid_Belt_Assault
         private static SoundEffect enemyShot;
         private static SoundEffect playerDeath;
         private static SoundEffect Smokemon;
+        private static SoundEffect goku;
+        private static SoundEffect SS3;
 
         private static Random rand = new Random();
 
@@ -31,9 +33,7 @@ namespace Asteroid_Belt_Assault
                 enemyShot = content.Load<SoundEffect>(@"Sounds\Shot2");
                 playerDeath = content.Load<SoundEffect>(@"Sounds\playerExplosion");
                 Smokemon = content.Load<SoundEffect>(@"Sounds\Smokemon");
-
-
-
+                goku = content.Load<SoundEffect>(@"Sounds\Goku");
 
                 for (int x = 1; x <= explosionCount; x++)
                 {
@@ -106,6 +106,19 @@ namespace Asteroid_Belt_Assault
                 Debug.Write("Smokemon Failed");
             }
         }
+
+        public static void PlayGoku()
+        {
+            try
+            {
+                goku.Play();
+            }
+            catch
+            {
+                Debug.Write("Goku Failed");
+            }
+        }
+
 
     }
 }

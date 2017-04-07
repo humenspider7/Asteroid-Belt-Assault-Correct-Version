@@ -424,10 +424,13 @@ namespace Asteroid_Belt_Assault
                     //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
                     if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
+                        
+
                         playerManager.playerSpeed = 640.0f;
                         asteroidManager.minSpeed = 1;
                         asteroidManager.maxSpeed = 20;
                         playerManager.PowerupLevel = 2;
+                        SoundManager.PlayGoku();
                     }
 
                     if(kb.IsKeyDown(Keys.D4) && kb.IsKeyDown(Keys.D2) && kb.IsKeyDown(Keys.D0))

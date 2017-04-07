@@ -69,7 +69,7 @@ namespace Asteroid_Belt_Assault
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -225,6 +225,7 @@ namespace Asteroid_Belt_Assault
             switch (gameState)
             {
                 case GameStates.TitleScreen:
+                    SoundManager.StopSong();
                     titleScreenTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -323,17 +324,23 @@ namespace Asteroid_Belt_Assault
                     else if (kb.IsKeyDown(Keys.D4))
                     {
                         difficultyLevel = 4;
+                        playerManager.isD4 = true;
                         gameState = GameStates.Playing;
                         playerManager.LivesRemaining = 0;
                         enemyManager.MinShipsPerWave = 20;
                         enemyManager.MaxShipsPerWave = 24;
-                        asteroidManager.minSpeed = 160;
-                        asteroidManager.maxSpeed = 240;
-                        collisionManager.enemyPointValue = 500;
-                        for (int i = 0; i < 15; i++)
+                        asteroidManager.minSpeed = 40;
+                        asteroidManager.maxSpeed = 220;
+                        collisionManager.enemyPointValue = 400;
+
+                        playerManager.PowerupLevel = 4;
+
+                        for (int i = 0; i < 1; i++)
                         {
                             asteroidManager.AddAsteroid();
                         }
+
+
                     }
 
                     else if (kb.IsKeyDown(Keys.D9)) //Survival Mode.  Score = time played.  No enemies.
@@ -441,7 +448,8 @@ namespace Asteroid_Belt_Assault
                     //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
                     if (kb.IsKeyDown(Keys.S) && kb.IsKeyDown(Keys.D3))
                     {
-                        playerManager.playerSpeed = 640.0f;
+
+                        playerManager.playerSpeed = 480.0f;
                         asteroidManager.minSpeed = 60;
                         asteroidManager.maxSpeed = 120;
                         playerManager.PowerupLevel = 2;

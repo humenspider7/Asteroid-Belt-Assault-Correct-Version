@@ -19,6 +19,7 @@ namespace Asteroid_Belt_Assault
         public int LivesRemaining = 6;
         private bool destroyed = false;
         public static bool Dead = false;
+        public bool isD4 = false;
 
         private Vector2 gunOffset = new Vector2(33, 10);
         private float shotTimer = 0.0f;
@@ -77,19 +78,23 @@ namespace Asteroid_Belt_Assault
 
         private void FireShot()
         {
-            if (shotTimer >= minShotTimer)
+            if (shotTimer >= minShotTimer) 
             {
                 PlayerShotManager.FireShot(
                     playerSprite.Location + gunOffset,
                     new Vector2(0, -1),
                     true);
 
-                if (PowerupLevel == 2)
+                if (isD4 && shotTimer >= minShotTimer)
                 {
+                    PlayerShotManager.FireShot(
+                   playerSprite.Location + gunOffset,
+                   new Vector2(0, -1),
+                   true);
 
                     for (int i = -60; i <= 60; i += 30)
                     {
-                        Vector2 newShot = new Vector2(i, -100);
+                        Vector2 newShot = new Vector2(20, -20);
                         newShot.Normalize();
 
 
@@ -101,7 +106,20 @@ namespace Asteroid_Belt_Assault
                     }
                 }
 
-                
+                if (PowerupLevel == 2)
+                {
+
+                    for (int i = -60; i <= 60; i += 30)
+                    {
+                        Vector2 newShot = new Vector2(i, -100);
+                        newShot.Normalize();
+                        PlayerShotManager.FireShot(
+                            playerSprite.Location + gunOffset,
+                            newShot,
+                            true);
+                    }
+                }
+
 
                 shotTimer = 0.0f;
             }

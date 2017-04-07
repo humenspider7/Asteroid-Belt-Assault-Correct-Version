@@ -191,6 +191,7 @@ namespace Asteroid_Belt_Assault
 
             if (!Destroyed)
             {
+                
                 //EffectManager.Effect("ShieldsUp").Trigger(playerSprite.Center + new Vector2(8, 0));
                 EffectManager.Effect("ShipSmokeTrail").Trigger(playerSprite.Center + new Vector2(8, 28));
                 playerSprite.Draw(spriteBatch);

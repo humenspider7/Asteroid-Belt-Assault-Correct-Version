@@ -18,6 +18,7 @@ namespace Asteroid_Belt_Assault
 
         private static SoundEffect playerShot;
         private static SoundEffect enemyShot;
+        private static SoundEffect playerDeath;
 
         private static Random rand = new Random();
 
@@ -27,6 +28,10 @@ namespace Asteroid_Belt_Assault
             {
                 playerShot = content.Load<SoundEffect>(@"Sounds\Shot1");
                 enemyShot = content.Load<SoundEffect>(@"Sounds\Shot2");
+                playerDeath = content.Load<SoundEffect>(@"Sounds\playerExplosion");
+
+
+
 
                 for (int x = 1; x <= explosionCount; x++)
                 {
@@ -74,6 +79,18 @@ namespace Asteroid_Belt_Assault
             catch
             {
                 Debug.Write("PlayEnemyShot Failed");
+            }
+        }
+
+        public static void PlayPlayerDeath()
+        {
+            try
+            {
+                playerDeath.Play();
+            }
+            catch
+            {
+                Debug.Write("PlayPlayerDeath Failed");
             }
         }
 

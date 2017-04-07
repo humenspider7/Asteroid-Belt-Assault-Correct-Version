@@ -360,6 +360,7 @@ namespace Asteroid_Belt_Assault
 
                     if (playerManager.Destroyed)
                     {
+                        
                         playerDeathTimer = 0f;
                         enemyManager.Active = false;
                         playerManager.LivesRemaining--;
@@ -397,12 +398,15 @@ namespace Asteroid_Belt_Assault
                     if (kb.IsKeyDown(Keys.D6) && kb.IsKeyDown(Keys.D9))
                     {
                         playerManager.LivesRemaining = 68;
+                        
+                        
                     }
 
                     //KYS
                     if (kb.IsKeyDown(Keys.K) && kb.IsKeyDown(Keys.Y) && kb.IsKeyDown(Keys.S))
                     {
                         playerManager.Destroyed = true;
+                        SoundManager.PlayPlayerDeath();
                     }
 
                     //AND THIS IS TO GO EVEN FURTHER BEYOND! (Work on This)
@@ -443,6 +447,7 @@ namespace Asteroid_Belt_Assault
                     playerManager.PlayerShotManager.Update(gameTime);
                     explosionManager.Update(gameTime);
                     planetManager.Update(gameTime);
+                    
 
 
                     if (playerDeathTimer >= playerDeathDelayTime)

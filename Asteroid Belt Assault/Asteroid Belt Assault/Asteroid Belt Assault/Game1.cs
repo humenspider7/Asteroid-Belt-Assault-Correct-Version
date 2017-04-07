@@ -43,6 +43,7 @@ namespace Asteroid_Belt_Assault
         Texture2D levelScreen;
         Texture2D ccViewer;
         Texture2D credits;
+        Texture2D weedBG;
 
         int difficultyLevel;
 
@@ -107,6 +108,9 @@ namespace Asteroid_Belt_Assault
             levelScreen = Content.Load<Texture2D>(@"Textures\LevelSelect");
             ccViewer = Content.Load<Texture2D>(@"Textures\CheatCodes");
             credits = Content.Load<Texture2D>(@"Textures\Credits");
+            weedBG = Content.Load<Texture2D>(@"Textures\420");
+
+
             planetManager = new PlanetManager(
                 this.Window.ClientBounds.Width,
                 this.Window.ClientBounds.Height,

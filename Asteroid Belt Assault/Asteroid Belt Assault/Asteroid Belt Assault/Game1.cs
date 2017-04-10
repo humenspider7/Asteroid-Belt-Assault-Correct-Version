@@ -22,10 +22,7 @@ namespace Asteroid_Belt_Assault
         /*
          ISSUES
 
-        Need to add Super Saiyan aura as a shield for the S3 Cheat.
-
-        Also make shots faster when in S3.
-        Add V shots for Difficulty 4.  Only shoots in V.
+         Resetting while on Difficulty 4 causes the V shots to carry over the rest of the game.
 
          */
 
